@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 100%;
+            margin: auto;
+
+        }
+
+        body {
+            color: white;
+        }
+
+        header {
+            /* background: url("background.jpg"); */
+            height: 100vh;
+            background-size: cover;
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+        }
+
+        .nav-area {
+            float: right;
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .nav-area li {
+            display: inline-block;
+        }
+
+        .nav-area li a {
+            color: aliceblue;
+            text-decoration: none;
+            padding: 5px 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+
+        .nav-area li a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .logo img {
+            width: 100px;
+            float: left;
+            height: auto;
+            margin: 10px;
+            margin-left: 30px;
+        }
+
+        .welcome-text {
+            position: absolute;
+            width: 900px;
+            height: 300px;
+            margin: 20%;
+            text-align: center;
+
+        }
+
+        .welcome-text h1 {
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 50px;
+        }
+
+        .welcome-text a {
+            border: 2px solid white;
+            padding: 10px 25px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 15px;
+            margin-top: 20px;
+            color: white;
+            display: inline-block;
+        }
+
+        .welcome-text a:hover {
+            color: black;
+            background-color: white;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+        }
+
+        .background {
+            position: absolute;
+            right: 0;
+            left: 0;
+            z-index: -1;
+            height: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <img src="logo.png" alt="">
+            </div>
+            <ul class="nav-area">
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Policies</a></li>
+                <li><a href="">Contact Us</a> </li>
+            </ul>
+        </div>
+
+        <video src="video.mp4" autoplay muted loop plays-inline class="background">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+
+        <div class="welcome-text">
+            <h1>Information Technology Compony, Pune</h1>
+            <div class="btn">
+                <a class="name" href="">Explore Us</a>
+            </div>
+        </div>
+
+    </header>
+</body>
+
+</html>
