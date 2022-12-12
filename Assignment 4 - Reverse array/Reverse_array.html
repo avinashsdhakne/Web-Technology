@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        background-color: aqua;
+        border: 2px solid black;
+        margin: 20%;
+
+    }
+
+    h1 {
+        background-color: white;
+        text-align: center;
+        padding: 3px;
+        border: 2px solid black;
+        margin: 10px;
+    }
+
+    .main {
+        background-color: antiquewhite;
+        margin: 10px;
+        padding: 5px;
+        box-sizing: border-box;
+        border: black solid 2px;
+    }
+
+    input {
+        width: 90%;
+        height: 30px;
+        margin-left: 5%;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    p {
+        display: block;
+        background-color: white;
+        width: 90%;
+        height: 30px;
+        margin-left: 5%;
+        border: 2px solid black;
+
+    }
+</style>
+
+<script>
+    function swap(string1, string2) {
+
+    }
+
+    function reverseArray() {
+        var input = document.getElementById("inputArray").value
+        array = input.split(" ")
+
+        display = ""
+        for (j = 0; j < array.length; j++) {
+            display = display + " " + array[j]
+        }
+
+        document.getElementById('displayArray').innerHTML = display
+
+        start = 0;
+        end = array.length - 1
+        while (start < end) {
+
+            temp = array[start]
+            array[start] = array[end]
+            array[end] = temp
+
+            start++
+            end--
+        }
+
+        result = ""
+        for (j = 0; j < array.length; j++) {
+            result = result + " " + array[j]
+        }
+
+        document.getElementById('reveredArray').innerHTML = result
+    }
+</script>
+
+<body>
+    <div class="container">
+        <h1>Revere the Array</h1>
+        <div class="main">
+            <h2>Enter an array:</h2>
+            <h4>Note: give spacing between two distinct elements</h4>
+            <input type="text" id="inputArray">
+            <div class="button">
+                <button onclick="reverseArray()"> Submit </button>
+            </div>
+            <h2>Your array is: </h2>
+            <p id="displayArray"></p>
+            <h2>Revered array is: </h2>
+            <p id="reveredArray"></p>
+        </div>
+    </div>
+</body>
+
+</html>

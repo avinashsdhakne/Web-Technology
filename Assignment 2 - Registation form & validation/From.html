@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightgreen;
+        }
+
+        .heading {
+            border: 2px solid black;
+            text-align: center;
+            margin: 20px;
+            margin-left: 15%;
+            margin-right: 15%;
+            background-color: bisque;
+            border-radius: 10px;
+        }
+
+        .information {
+            padding: 1%;
+            margin: 10% 15%;
+            margin-top: 1px;
+            border: 2px solid black;
+            background-color: bisque;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 95%;
+            margin: auto;
+        }
+
+        label {
+            float: left;
+            margin: 1%;
+        }
+
+        input {
+            float: right;
+            width: 50%;
+        }
+
+        td {
+            padding: 1%;
+            padding-left: 3%;
+            padding-right: 3%;
+        }
+
+        fieldset {
+            background-color: beige;
+            margin: 1%;
+        }
+
+        textarea {
+            width: 100%;
+            margin-left: 5%;
+        }
+
+        .other_info .gender input {
+            width: 20%;
+        }
+
+        fieldset p {
+            text-align: center;
+            background-color: white;
+            border-radius: 5px;
+            margin-right: 5%;
+            margin-left: 5%;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            border: 1px solid black;
+        }
+
+        .buttons {
+            display: flex;
+            text-align: center;
+            align-self: center;
+            justify-content: center;
+            margin-top: 3%;
+
+
+        }
+
+        .error {
+            float: left;
+            margin-top: 2px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+
+        function isPresent(string, character) {
+            for (i = 0; i < string.length; i++) {
+                if (string[i] == character)
+                    return true
+            }
+            return false
+        }
+
+        function validateEmailPhone() {
+            document.getElementById('invalidPhoneNo').innerHTML = "Please Enter exactly 10 numbers only"
+
+            var phone = document.getElementById('phoneNumber').value
+            if (phone == "")
+                document.getElementById('invalidPhoneNo').innerHTML = "Please enter a phone number"
+            else if (isNaN(phone))
+                document.getElementById('invalidPhoneNo').innerHTML = "Please Enter a numbers only"
+            else if (phone.length > 10)
+                document.getElementById('invalidPhoneNo').innerHTML = "Only 10 digit number is allowed"
+
+            var email = document.getElementById('emailAddress').value
+            if (!isPresent(email, "@"))
+                document.getElementById('invalidEmail').innerHTML = "Email must contain @"
+            else if (!isPresent(email, "."))
+                document.getElementById('invalidEmail').innerHTML = "Email must contain ."
+            else if (email.indexOf('@') == 0)
+                document.getElementById('invalidEmail').innerHTML = "@ should not be at end"
+            else if(email.lastIndexOf('.') < email.lastIndexOf('@')){
+                document.getElementById('invalidEmail').innerHTML = ". is expected at the end"
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div class="heading">
+        <h2>Student Registration From</h2>
+    </div>
+
+    <div class="information">
+        <div class="personal_info">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <form action="">
+                    <table id="name">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="">Student Name:</label>
+                                    <input type="text" id="">
+                                </td>
+                                <td>
+                                    <label for="">Surname:</label>
+                                    <input type="text" id="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Father Name:</label>
+                                    <input type="text" id="">
+                                </td>
+                                <td>
+                                    <label for="">Mother Name:</label>
+                                    <input type="text" id="">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="address">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="">Current address:</label>
+                                    <textarea name="" id="" cols="40" rows="5"></textarea>
+                                </td>
+                                <td>
+                                    <label for="">Permanent address:</label>
+                                    <textarea name="" id="" cols="40" rows="5"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="contact">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="" id="">Contact No:</label>
+                                    <input type="text" id="phoneNumber">
+                                    <span class="error" id="invalidPhoneNo"></span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="" id="">Email ID:</label>
+                                    <input type="text" id="emailAddress">
+                                    <span class="error" id="invalidEmail"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="other_info">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="">Birth Date:</label>
+                                    <input type="date">
+                                </td>
+                                <td>
+                                    <label for="">Gender:</label>
+                                    <table class="gender">
+                                        <tr>
+                                            <td>
+                                                <label for="">Male</label>
+                                                <input type="radio" name="gender" id="">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="">Female</label>
+                                                <input type="radio" name="gender" id="">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="">Other</label>
+                                                <input type="radio" name="gender" id="">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <label for="">Age:</label>
+                                    <input type="Number">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="buttons">
+
+                                    <input type="reset" value="Reset">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="buttons">
+
+                                    <input type="submit" value="Save">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </form>
+            </fieldset>
+
+            <fieldset>
+                <legend>Admission Details</legend>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="">10<sup>th</sup> Marks: </label>
+                                <input type="Number">
+                            </td>
+                            <td>
+                                <label for="">10<sup>th</sup> Percentage: </label>
+                                <input type="Number">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="">12<sup>th</sup> Marks: </label>
+                                <input type="Number">
+                            </td>
+                            <td>
+                                <label for="">12<sup>th</sup> Percentage: </label>
+                                <input type="Number">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="">MHT-CET percentile:</label>
+                                <input type="number" name="" id="">
+                            </td>
+                            <td>
+                                <label for="">Rank:</label>
+                                <input type="number" name="" id="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="">College Name: </label>
+                                <input type="text">
+                            </td>
+                            <td>
+                                <label for="branch">Select Branch: </label>
+                                <select name="branch" id="">
+                                    <option value="1">Computer Engineering</option>
+                                    <option value="2">Information Technology</option>
+                                    <option value="3">Chemical Engineering</option>
+                                    <option value="4">Mechanical Engineering</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="buttons">
+                                <input type="reset" value="Reset">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="buttons">
+                                <input type="submit" value="Save">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Documents</legend>
+                <table>
+                    <tr>
+                        <div>
+                            <p>Upload the Following documents: </p>
+                        </div>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="">10<sup>th</sup> Marksheet: </label>
+                            <input type="file" name="" id="">
+                        </td>
+                        <td>
+                            <label for="">12<sup>th</sup> Marksheet: </label>
+                            <input type="file" name="" id="">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="">MHT-CET score card:</label>
+                            <input type="file" name="" id="">
+                        </td>
+                        <td>
+                            <label for="">Income Certificate: </label>
+                            <input type="file">
+                        </td>
+                    </tr>
+
+
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="buttons">
+                                <input type="reset" value="Reset">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="buttons">
+                                <input type="submit" value="Save" onclick="validateEmailPhone()">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    </div>
+</body>
+
+</html>
